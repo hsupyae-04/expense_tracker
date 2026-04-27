@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shop Tracker Pro</title>
+<link rel="stylesheet" href="expense_tracker.css">
+
+</head>
+
+<body>
+
+<!-- Log in -->
+<div id="loginPage" class="login-container">
+
+  <div class="login-card">
+    <h2>Welcome 👋</h2>
+    <p>Login to your dashboard</p>
+
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+  </div>
+
+</div>
+
+
+<!-- APP -->
+<div id="app">
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2>Hsu Expense Tracker</h2>
+  <button onclick="setFilter('all')">Dashboard</button>
+  <button onclick="setFilter('income')">Income</button>
+  <button onclick="setFilter('expense')">Expense</button>
+  <button onclick="exportCSV()">Export</button>
+  <button onclick="logout()">Logout</button>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <input id="search" placeholder="Search..." onkeyup="searchTransaction()">
+  <input type="month" id="monthFilter" onchange="filterByMonth()">
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+  <div class="card">Rp <span id="income">0</span><p>Income</p></div>
+  <div class="card">Rp <span id="expense">0</span><p>Expense</p></div>
+  <div class="card">Rp <span id="profit">0</span><p>Balance</p></div>
+</div>
+
+<!-- FORM -->
+<form id="form">
+  <select id="type">
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+  </select>
+
+  <input id="name" placeholder="Product" required>
+  <input id="amount" type="number" placeholder="Amount" required>
+  <input id="qty" type="number" placeholder="Qty" required>
+  <input id="date" type="date" required>
+
+  <button>Add</button>
+</form>
+
+<!-- CHARTS -->
+<div class="charts">
+  <canvas id="pieChart"></canvas>
+  <canvas id="barChart"></canvas>
+</div>
+
+<!-- TABLE -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Qty</th>
+      <th>Amount</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="list"></tbody>
+</table>
+
+</main>
+</div>
+</div>
+
+<script src="expense_tracker.js"></script>
+</body>
+</html>
